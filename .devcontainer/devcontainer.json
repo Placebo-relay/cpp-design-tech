@@ -1,0 +1,13 @@
+   {
+       "name": "C++ Codespace",
+       "build": {
+           "args": [
+               "apt-get update",
+               "apt-get install -y libboost-all-dev"
+           ]
+       },
+       "extensions": [
+           "ms-vscode.cpptools"
+       ]
+   }
+   
