@@ -4,7 +4,6 @@
 #include <boost/math/quadrature/gauss_kronrod.hpp>
 #include <boost/math/quadrature/adaptive.hpp>
 #include <boost/math/constants/constants.hpp>
-#include <boost/math/tools/roots.hpp>
 
 double f(double x) {
     return boost::math::exp(3.0) * x * boost::math::pow(x + 1, 0.2);
@@ -49,11 +48,8 @@ int main() {
     double result_gauss_kronrod = boost::math::quadrature::gauss_kronrod<double, 15>::integrate(f, a, b);
     double result_adaptive = boost::math::quadrature::adaptive(f, a, b, 1e-6);
 
-    // Analytical solution using root finding
-    auto analytical_solution_func = [a, b](double x) {
-        return (boost::math::exp(3) * boost::math::pow(x + 1, 1.2) * (30 * x - 25)) / 66;
-    };
-    double analytical_solution = boost::math::tools::toms748_solve(analytical_solution_func, a, b);
+    // Analytical solution
+    double analytical_solution = (exp(3) * pow(b + 1, 1.2) * (30 * b - 25) - exp(3) * pow(a + 1, 1.2) * (30 * a - 25)) / 66;
 
     std::cout << "The result of the integration using trapezoidal method is: " << result_trapezoidal << std::endl;
     std::cout << "The result of the integration using Simpson's rule method is: " << result_simpson << std::endl;
