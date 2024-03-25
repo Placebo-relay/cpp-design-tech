@@ -65,7 +65,7 @@ int main() {
     double result_simpson = simpsonsRule(a, b, n);
     double analytical_solution = (exp(3) * pow(b + 1, 1.2) * (30 * b - 25) - exp(3) * pow(a + 1, 1.2) * (30 * a - 25)) / 66;
 
-    exp(3.0) * x * pow(x + 1, 0.2)
+    // exp(3.0) * x * pow(x + 1, 0.2)
     std::cout << "Integral solver console c++ of { exp(3.0) * x * pow(x + 1, 0.2) }" << std::endl;  
     std::cout << "Midpoint rectangles method is: " << result_midpoint << std::endl;
     std::cout << "Simpson's rule method is: " << result_simpson << std::endl;
