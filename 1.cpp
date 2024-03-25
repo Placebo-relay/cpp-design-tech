@@ -64,9 +64,9 @@ int main() {
     double result_ssimpson = simple_simpsonsRule(a, b);
     double result_simpson = simpsonsRule(a, b, n);
     double analytical_solution = (exp(3) * pow(b + 1, 1.2) * (30 * b - 25) - exp(3) * pow(a + 1, 1.2) * (30 * a - 25)) / 66;
-    std::cout << "The result of the integration using midpoint rectangles method is: " << result_midpoint << std::endl;
-    std::cout << "The result of the integration using Simpson's rule method is: " << result_simpson << std::endl;
-    std::cout << "The result of the integration using Simpson's rule method is: " << result_ssimpson << std::endl;
+    std::cout << "Midpoint rectangles method is: " << result_midpoint << std::endl;
+    std::cout << "Simpson's rule method is: " << result_simpson << std::endl;
+    std::cout << "simpleSimpson's rule method is: " << result_ssimpson << std::endl;
     std::cout << "The analytical solution of the integration is: " << analytical_solution << std::endl;
     return 0;
 }
