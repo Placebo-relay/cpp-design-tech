@@ -15,6 +15,12 @@ double midpointRectangles(double a, double b, int n) {
     return h * sum;
 }
 
+double simple_simpsonsRule(double a, double b) {
+    double h = (b - a) / 6;
+    double sum = f(a) + f(b) + 4 * f((a + b) / 2);
+    return h * sum;
+}
+
 double simpsonsRule(double a, double b, int n) {
     double h = (b - a) / n;
     double sum = f(a) + f(b);
@@ -55,10 +61,12 @@ int main() {
         return 1;
     }
     double result_midpoint = midpointRectangles(a, b, n);
+    double result_ssimpson = simple_simpsonsRule(a, b);
     double result_simpson = simpsonsRule(a, b, n);
     double analytical_solution = (exp(3) * pow(b + 1, 1.2) * (30 * b - 25) - exp(3) * pow(a + 1, 1.2) * (30 * a - 25)) / 66;
     std::cout << "The result of the integration using midpoint rectangles method is: " << result_midpoint << std::endl;
     std::cout << "The result of the integration using Simpson's rule method is: " << result_simpson << std::endl;
+    std::cout << "The result of the integration using Simpson's rule method is: " << result_ssimpson << std::endl;
     std::cout << "The analytical solution of the integration is: " << analytical_solution << std::endl;
     return 0;
 }
